@@ -1,19 +1,100 @@
+{{ 'section-01.css' | asset_url | stylesheet_tag }}
+
 {% schema %}
 {
   "name": "section-01",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_header",
+      "label": "Section Header",
+      "default": "Featured Collection"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Enter your title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Enter your subtitle"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link",
+          "default": "/"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Shop"
+        }
+      ],
+      "limit": 3
+    }
+  ],
   "presets": [
     {
       "name": "section-01",
-      "settings": {}
+      "blocks": [
+        {
+          "type": "content"
+        },
+        {
+          "type": "content"
+        },
+        {
+          "type": "content"
+        }
+      ]
     }
   ]
 }
 {% endschema %}
 
-<h1>Hola Mundo</h1>
+<style>
+  .product-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    background-color: aqua;
+  }
+</style>
 
-{% comment %}
-  "tag": "section",
-  "class": "",
-{% endcomment %}
+<section class="get-started-container">
+  <h2 class="get-started-section-header">{{ section.settings.section_header }}</h2>
+
+  <div class="get-started-row">
+    {% for block in section.blocks %}
+      <div class="get-started-block">
+        {% if block.settings.image %}
+          <div class="{{ section.settings.image_aspect_ratio }}">
+            <img loading="lazy" src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.title }}">
+          </div>
+        {% endif %}
+
+        <div class="get-started-text">
+          <p class="get-started-title">{{ block.settings.title }}</p>
+          <span class="get-started-subtitle">{{ block.settings.subtitle }}</span>
+          <a href="{{ block.settings.button_link }}" class="get-started-button">{{ block.settings.button_text }}</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
