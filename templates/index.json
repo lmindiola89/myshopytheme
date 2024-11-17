@@ -56,9 +56,51 @@
         "stack_images_on_mobile": true,
         "show_text_below": true
       }
+    },
+    "section_01_7DLnqX": {
+      "type": "section-01",
+      "blocks": {
+        "content_qWk6zF": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+            "title": "Enter your title",
+            "subtitle": "Enter your subtitle",
+            "button_link": "/",
+            "button_text": "Shop"
+          }
+        },
+        "content_nWfV34": {
+          "type": "content",
+          "settings": {
+            "title": "Enter your title",
+            "subtitle": "Enter your subtitle",
+            "button_link": "/",
+            "button_text": "Shop"
+          }
+        },
+        "content_4wXrgP": {
+          "type": "content",
+          "settings": {
+            "title": "Enter your title",
+            "subtitle": "Enter your subtitle",
+            "button_link": "/",
+            "button_text": "Shop"
+          }
+        }
+      },
+      "block_order": [
+        "content_qWk6zF",
+        "content_nWfV34",
+        "content_4wXrgP"
+      ],
+      "settings": {
+        "section_header": "Featured Collection"
+      }
     }
   },
   "order": [
-    "image_banner_QefMxM"
+    "image_banner_QefMxM",
+    "section_01_7DLnqX"
   ]
 }
